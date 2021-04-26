@@ -1,0 +1,106 @@
+// CONTAINER
+.main-container {
+    max-width: 120rem;
+    margin: 8rem auto;
+    background-color: var(--color-grey-light-1);
+    box-shadow: var(--shadow-dark);
+
+    min-height: 50rem;
+
+    @media only screen and (max-width: $bp-largets) {
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+// CONTENT
+.content {
+    display: flex;
+
+    @media only screen and (max-width: $bp-medium) {
+        flex-direction: column;
+    }
+}
+
+// HEADER
+.header {
+    font-size: 1.4rem; // PARA QUE PUEDA HEREDAR EL ELEMENTO INPUT
+    height: 7rem;
+    border-bottom: var(--line);
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media only screen and (max-width: $bp-smalllest) {
+        flex-wrap: wrap;
+        align-content: space-around;  // CONTROLA EL ESPACIO ENTRE FILAS 
+        height: 11rem;
+    } 
+}
+
+//////////////////////////////////////////
+// SIDEBAR
+.sidebar {
+    background-color: var(--color-grey-dark-1);
+    flex: 0 0 18%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+        flex-direction: row;   
+    }
+}
+
+//////////////////////////////////////////
+// CONTENIDO PRINCIPAL
+.hotel-view {
+    flex: 1;
+}
+
+.detail {
+    font-size: 1.4rem;
+    display: flex;
+    //justify-content: center;
+    padding: 4.5rem;
+    background-color: var(--color-grey-light-1);
+    border-bottom: var(--line);
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 3rem;   
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        flex-direction: column;  
+    }
+}
+
+.description {
+    flex: 0 0 60%;
+    margin-right: 4.5rem;
+    padding: 3rem;
+    box-shadow: var(--shadow-light);
+    background-color: #fff;
+    
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-right: 3rem;   
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        margin-right: 0;
+        margin-bottom: 3rem; 
+    }
+}
+
+.user-reviews {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

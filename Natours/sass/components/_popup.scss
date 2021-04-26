@@ -1,0 +1,115 @@
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3000;
+    background-image: linear-gradient(rgba($color-black, .8), rgba($color-black, .8));
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+
+    // CONSULTA DE CARACTERISTICAS
+    @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-image: linear-gradient(rgba($color-black, .3), rgba($color-black, .3));
+    }
+
+    &__content {
+        @include absCenter;
+        width: 75%;
+        border-radius: 3px;
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        background-color: $color-white;
+        
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.25);
+        transition: all .5s .2s;
+
+        @include respond(tab-port) {
+            flex-direction: column;
+            width: 85%;
+            height: 85vh;
+        }
+    }
+
+    &__left {
+        width: 33.333333%;
+
+        @include respond(tab-port) {
+            width: 100%;
+        }
+    }
+
+    &__right {
+        width: 66.666667%;
+        padding: 3rem 5rem;
+
+        @include respond(tab-port) {
+            width: 100%;
+            padding: 1.5rem 3rem;
+        }
+    } 
+
+    &__img {
+        display: block;
+        width: 100%;
+
+        @include respond(tab-port) {
+            display: inline-block;
+            width: 50%;
+            float: left;
+        }
+    }
+
+    &__text {
+        font-size: 1.4rem;
+
+        // COLUMNAS
+        column-count: 2;
+        column-gap: 4rem;
+        column-rule: 1px solid $color-gray-light-2;
+
+        //GUIONES
+        hyphens: auto;
+    }
+
+
+    // ESTADOS AL ABRIR 
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__close {
+
+        &:link,
+        &:visited {
+            font-size: 3rem;
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            text-decoration: none;
+            color: $color-gray-dark;
+            transition: all .2s;
+        }
+
+        &:hover,
+        &:active {
+            color: $color-primary;
+        }
+    }
+
+}
